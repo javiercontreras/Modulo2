@@ -44,11 +44,27 @@ print(f"La palabra invertida es : {palabra_inversa}")
 # Ejercicio 2.1
 # Tomar los tres casos del trabajo grupal anterior y re escribirlos como funciones 
 
-def root(x):  
-    x_root = x ** (1/2)
-    return x_root
+# def root(x):  
+#     x_root = x ** (1/2)
+#     return x_root
 
 
-a = float(input("Ingrese un numero para calcular su raiz : "))
-b = root(a)
-print(b)
+# a = float(input("Ingrese un numero para calcular su raiz : "))
+# b = root(a)
+# print(b)
+
+
+mayor = float("-inf")
+
+FIN = False
+
+while not FIN:
+    valor = input()
+    if valor == "FIN":
+        FIN == True
+    else:
+        if float(valor) > mayor:
+            mayor = float(valor)
+        
+    print("mayor hasta ahora es :", mayor)
+
