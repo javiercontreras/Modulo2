@@ -198,5 +198,5 @@ for i in personas:
     print(f"Estudiante: {i['nombre']} {i['apellido']}")
     for clave in i['cursos']:
         notas_promedio = i['cursos'][clave]
-        print(f"{clave} notas {sum(notas_promedio)/len(notas_promedio)}")
+        print(f"{clave}, promedio de notas :  {sum(notas_promedio)/len(notas_promedio)}")
         
