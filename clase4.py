@@ -1,3 +1,4 @@
-print(194%11)
+print(9%8)
 
-print(194//11)
+rut = "123"
+print(list(rut))

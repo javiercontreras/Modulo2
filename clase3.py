@@ -45,6 +45,7 @@ print(d_euclidiana)
 # para obtener el dígito verificador
 
 #Ingresa el rut sin digito verificador
+"""
 rut = str(input("Ingrese rut sin puntos y sin digito verificador : "))
 len_rut = len(rut)
 list_chr_rut = list(rut)
@@ -58,16 +59,48 @@ while (flag):
             sum = sum + x
         else:
             flag = False
-print(sum)
 # #Individualizas los numeros del rut
-mod11_rest = 10#-(sum%11)
+mod11_rest = 11 - (sum%11)
 digito = mod11_rest
 if mod11_rest == 11 or mod11_rest == 10:
     digito = (lambda x: 0 if mod11_rest == 10 else "K")(digito)
 
 print(digito)
+"""
+# Determinar el mayor valor en una lista
+# • Escriba un programa que reciba una lista y permita determinar el valor mayor.
+# • Debe usar una operación tipo “reduce()” para realizar las comparaciones.
+# • El programa debe imprimir por pantalla el valor mayor de la lista
+"""
+from functools import reduce
+lista_test = [10,2,3,-5,7]
+
+mayor_value = reduce(lambda x,y: y if (x<y) else x ,lista_test)
+print(mayor_value)
+ """
+# Viento registrado en estaciones de monitoreo
+# Cree un programa que solicite el nombre de una estación de monitoreo y los vientos registrados
+# (nudos) en las últimas 5, 10, y 15 horas.
+# • Almacene esta información en la memoria principal usando diccionarios y listas.
+# • Su programa debe crear un nuevo diccionario con los vientos registrados en kilómetros por hora.
+# • Además, el programa debe mostrar por la salida estándar el nombre de la estación y los vientos
+# registrados (convertidos a kilómetros por hora).
+# • Debe usar operación map().
+# • Tip: los vientos en una zona calmada están entre los 3 y 10 nudos
 
 
-#aplicar multiplicado algoritmo modulo11 y realizar suma
-#Extraer digito verificador
-#Entregar digito verificador si resultado es 11 se retorna un cero si es 10 una K
+End_program = False
+stations = {}
+
+while not End_program: 
+    wind = []
+    station_name = input("Ingrese el nombre de la estacion :")
+    for i in range(3):
+        w= float(input(f"Ingrese los vientos en nudos en las ultimas {5*(i+1)} horas) "))
+        wind.append(w)
+    
+    wind_khr = list(map(lambda x: x*2,wind))
+    stations[station_name] = {'wind_data': wind,'wind_k/hr':wind_khr}
+    for key in stations:
+        wind_data_khr = stations[key]['wind_k/hr']
+        print(f"Estación {key}, Vientos : {wind_data_khr}")
