@@ -88,7 +88,7 @@ print(mayor_value)
 # • Debe usar operación map().
 # • Tip: los vientos en una zona calmada están entre los 3 y 10 nudos
 
-
+"""
 End_program = False
 stations = {}
 
@@ -103,4 +103,31 @@ while not End_program:
     stations[station_name] = {'wind_data': wind,'wind_k/hr':wind_khr}
     for key in stations:
         wind_data_khr = stations[key]['wind_k/hr']
+        print(f"Estación {key}, Vientos : {wind_data_khr}")
+"""        
+# Modifique el programa anterior para mostrar por pantalla los vientos que
+# sobrepasan los 20 kilómetros por hora.
+# • Utilice una operación filter() para complementar el ejercicio anterior de tal manera
+# que pueda dar cumplimiento a los requisitos de este ejercicio
+
+
+End_program = False
+stations = {}
+
+while not End_program: 
+    wind = []
+    station_name = input("Ingrese el nombre de la estacion :")
+    for i in range(3):
+        w= float(input(f"Ingrese los vientos en nudos en las ultimas {5*(i+1)} horas) "))
+        wind.append(w)
+    
+    wind_khr = list(map(lambda x: x*2,wind))
+    wind_over_20 = list(filter(lambda x: x >= 20 ,wind_khr))
+    stations[station_name] = {'wind_data': wind,'wind_k/hr':wind_khr, 'wind_over_20':wind_over_20}
+    flag= input("Si desea terminar ingrese un 1 si desea continuar un 0 :")
+    End_program =   (lambda x: True if x == '1' else False)(flag)
+    print(f"({End_program})")
+
+for key in stations:
+        wind_data_khr = stations[key]['wind_over_20']
         print(f"Estación {key}, Vientos : {wind_data_khr}")
